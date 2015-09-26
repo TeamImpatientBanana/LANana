@@ -1,0 +1,36 @@
+{
+    "version": "1.5.0-beta",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "../js"
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "!./node_modules/**/*"
+    ],
+    "files": [
+        "./definitions/p2.d.ts",
+        "./definitions/phaser.comments.d.ts",
+        "./definitions/phaser.d.ts",
+        "./definitions/pixi.comments.d.ts",
+        "./definitions/pixi.d.ts",
+        "./definitions/socket.io-client.d.ts",
+        "./definitions/socket.io.d.ts",
+        "./enemytank.ts",
+        "./main.ts",
+        "./update.ts"
+    ]
+}
