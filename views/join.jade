@@ -1,0 +1,9 @@
+div.container
+    h1= title
+        h5 Enter your game's four digit code below
+        form(action="/join", method="post")
+            div.row
+                div.nine.columns
+                    input.u-full-width(type="text", name="token" placeholder="Game token")
+                div.three.columns
+                    input.button-primary(type="submit", value="submit input")

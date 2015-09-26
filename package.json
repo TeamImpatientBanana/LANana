@@ -1,13 +1,16 @@
 {
-  "name": "application-name",
+  "name": "LANana",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "^1.14.0",
+    "connect-flash": "^0.1.1",
     "express": "2.5.8",
-    "jade": ">= 0.0.1",
-    "express-session": "~1.11.3"
+    "express-messages": "^1.0.0",
+    "express-session": "~1.11.3",
+    "jade": ">= 0.0.1"
   }
 }
