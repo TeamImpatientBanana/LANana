@@ -6,7 +6,11 @@
 var express = require('express');
 var routes = require('./routes');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
+var expressMessages = require('express-messages');
+var connectFlash = require('connect-flash');
 
 var app = module.exports = express.createServer();
 
@@ -19,6 +23,10 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+
+  app.use(cookieParser('secret'));
+  app.use(session({cookie: { maxAge: 60000 }}));
+  //app.use(flash());
 });
 
 app.configure('development', function(){
@@ -29,23 +37,7 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-// Express messages
-app.use(require('connect-flash')());
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
 
-// Express session
-app.use(session({
-  genid: function(req) {
-    return genuuid() // use UUIDs for session IDs
-  },
-  secret: 'brosis'
-}));
-
-// parse application/json
-app.use(bodyParser.json());
 
 // Routes
 app.get('/', routes.index);

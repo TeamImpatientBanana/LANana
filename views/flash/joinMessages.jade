@@ -1,0 +1,5 @@
+if messages.error
+    each message in messages.error
+        div.alert.alert-danger
+          a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+          != message

@@ -25,10 +25,19 @@ exports.getJoin = function(req, res) {
 exports.postJoin = function(req, res) {
     // set a session on valid auth token
     var token = req.body.token;
+
     if (exports.tokens.indexOf(token) > -1) {
+        var sess = req.session;
+        // Set the session token
+        sess.token = token;
         res.send(token);
     }
     else {
-        req.flash("error", "Invalid game token");
+        //res.send(JSON.stringify(req.flash("error", "Invalid game token")));
+        res.render('join', {
+            title: 'Join Game',
+            token: exports.tokens[0],
+            messages: { error: ["Invalid game token!"] }
+        });
     }
 };
